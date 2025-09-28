@@ -5,18 +5,8 @@
  *  Author: joela
  */ 
 #include <avr/io.h>
+#include "../include/gpio.h"
 
-typedef struct {
-	volatile uint8_t *port;
-	volatile uint8_t *ddr;
-	volatile uint8_t *pin;
-	uint8_t bit;
-	
-} pin_mapping_t;
-
-typedef enum {
-	input, output 
-} mode_t;
 
 // Mapping for the arduino digital pins
 const pin_mapping_t arduino_mapping_digital[] = {
@@ -53,18 +43,18 @@ const pin_mapping_t arduino_mapping_analog[] = {
 /* TOOD: add input pullup */
 
 void gpio_set_direction(uint8_t pin_number, mode_t pin_mode){
-	 if (pin_mode == output){
+	 if (pin_mode == OUTPUT){
 		 *arduino_mapping_digital[pin_number].ddr |= (1 << arduino_mapping_digital[pin_number].bit);
 	 }
-	 else if (pin_mode == input){
+	 else if (pin_mode == INPUT){
 		 *arduino_mapping_digital[pin_number].ddr &= ~(1 << arduino_mapping_digital[pin_number].bit);
 	 }
 }
 
 // Sets the bit corresponding to the pin in the PORT register
-void gpio_digital_write(uint8_t pin_number, uint8_t value){
+void gpio_digital_write(uint8_t pin_number, digital_state_t state){
 	
-	if (value > 0)
+	if (state == HIGH)
 	{
 		*arduino_mapping_digital[pin_number].port |= (1 << arduino_mapping_digital[pin_number].bit);
 	}
