@@ -9,6 +9,8 @@
 #ifndef SR_74HC595_H_
 #define SR_74HC595_H_
 
+#include <stdint.h>
+
 typedef struct {
 	
 	uint8_t ser;
@@ -16,7 +18,7 @@ typedef struct {
 	uint8_t srclk;
 	uint8_t srclr;
 	
-} shift_register_t;
+	} shift_register_t;
 
 shift_register_t shift_register_init(uint8_t ser_pin_number, uint8_t rclk_pin_number, uint8_t srclk_pin_number, uint8_t srclr_pin_number);
 void shift_register_clear(shift_register_t *shift_reg);

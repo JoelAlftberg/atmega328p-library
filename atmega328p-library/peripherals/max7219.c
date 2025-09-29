@@ -7,14 +7,7 @@
 
 #include <stdint.h>
 #include "../include/gpio.h"
-
-typedef struct {
-	
-	uint8_t din_pin;
-	uint8_t clk_pin;
-	uint8_t cs_pin;
-	
-	} max7219_t;
+#include "../include/max7219.h"
 
 max7219_t max7219_init(uint8_t din_pin, uint8_t clk_pin, uint8_t cs_pin){
 	

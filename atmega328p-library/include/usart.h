@@ -14,5 +14,4 @@ uint8_t usart_recieve_char(void);
 void usart_transmit_char(uint8_t character);
 
 
-
 #endif /* USART_H_ */
