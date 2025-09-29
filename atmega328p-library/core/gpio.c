@@ -6,6 +6,7 @@
  */ 
 #include <avr/io.h>
 #include "../include/gpio.h"
+#define NOP() __asm__ __volatile__("nop") // Define NOP instruction
 
 
 // Mapping for the arduino digital pins
@@ -67,4 +68,11 @@ void gpio_digital_write(uint8_t pin_number, digital_state_t state){
 // Reads the Input from the pin and checks if it's high or low
 uint8_t gpio_digital_read(uint8_t pin_number){
 	return (*arduino_mapping_digital[pin_number].pin & (1 << arduino_mapping_digital[pin_number].bit)) ? 1: 0;
+}
+
+void gpio_pulse(uint8_t pin){
+	gpio_digital_write(pin, HIGH);
+	NOP();
+	gpio_digital_write(pin, LOW);
+	NOP();
 }

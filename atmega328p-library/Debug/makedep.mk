@@ -8,5 +8,9 @@ core\usart.c
 
 library.c
 
+peripherals\cd4026be.c
+
+peripherals\max7219.c
+
 peripherals\sr_74hc595.c
 

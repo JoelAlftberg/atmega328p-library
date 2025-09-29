@@ -140,6 +140,12 @@
     <Compile Include="library.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="peripherals\cd4026be.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="peripherals\max7219.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="peripherals\sr_74hc595.c">
       <SubType>compile</SubType>
     </Compile>
@@ -147,6 +153,7 @@
   <ItemGroup>
     <Folder Include="core" />
     <Folder Include="include" />
+    <Folder Include="util" />
     <Folder Include="peripherals" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

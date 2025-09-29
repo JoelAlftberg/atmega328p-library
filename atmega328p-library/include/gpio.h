@@ -29,6 +29,6 @@ typedef enum {
 void gpio_set_direction(uint8_t pin_number, mode_t pin_mode);
 void gpio_digital_write(uint8_t pin_number, digital_state_t state);
 uint8_t gpio_digital_read(uint8_t pin_number);
-
+void gpio_pulse(uint8_t pin);
 
 #endif /* GPIO_H_ */
