@@ -9,6 +9,8 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
+#include <stdint.h>
+
 
 typedef struct {
 	volatile uint8_t *port;

@@ -27,7 +27,7 @@ cd4026be_t cd4026be_init(uint8_t digit_1_pin, uint8_t digit_2_pin, uint8_t digit
 	return new_cd4026be;
 }
 
-void cd4026_reset(cd4026be_t *cd4026be){
+void cd4026be_reset(cd4026be_t *cd4026be){
 	gpio_pulse(cd4026be->reset_pin);
 }
 

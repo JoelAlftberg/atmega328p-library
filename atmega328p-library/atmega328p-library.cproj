@@ -131,6 +131,9 @@
     <Compile Include="include\cd4026be.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="include\delay.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\max7219.h">
       <SubType>compile</SubType>
     </Compile>
@@ -153,6 +156,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="peripherals\sr_74hc595.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="util\delay.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

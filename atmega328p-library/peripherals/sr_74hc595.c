@@ -5,21 +5,9 @@
  *  Author: Joel Alftberg
  */ 
 
-#include <util/delay.h>
 #include "../include/gpio.h"
-
-#define F_CPU 16000000UL // 16 MHz clock frequency
-
 #include "../include/sr_74hc595.h"
 
-
-// Helper function, move to util folder later
-static inline void shift_register_pulse(uint8_t pin) {
-	gpio_digital_write(pin, HIGH);
-	_delay_us(1);
-	gpio_digital_write(pin, LOW);
-	_delay_us(1);
-}
 
 // Initialize a new register and set chosen pins to output mode
 shift_register_t shift_register_init(uint8_t ser_pin_number, uint8_t rclk_pin_number, uint8_t srclk_pin_number, uint8_t srclr_pin_number){
@@ -54,7 +42,7 @@ void shift_register_clear(shift_register_t *shift_reg){
 void shift_register_write_bit(shift_register_t *shift_reg, uint8_t bit){
 	
 	gpio_digital_write(shift_reg->ser, bit  ? HIGH: LOW);
-	shift_register_pulse(shift_reg->srclk);
+	gpio_pulse(shift_reg->srclk);
 	
 }
 
@@ -64,7 +52,7 @@ void shift_register_write_byte(shift_register_t *shift_reg, uint8_t byte){
 		// shift each bit of the byte and mask
 		shift_register_write_bit(shift_reg, (byte >> i) & 0x01);
 	}
-	shift_register_pulse(shift_reg->rclk);
+	gpio_pulse(shift_reg->rclk);
 	
 }
 
