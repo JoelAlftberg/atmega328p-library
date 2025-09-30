@@ -16,12 +16,15 @@ typedef struct {
 	uint8_t din_pin;
 	uint8_t clk_pin;
 	uint8_t cs_pin;
+	uint8_t intensity;
+	uint8_t mode;
 	
 } max7219_t;
 
-max7219_init(uint8_t din_pin, uint8_t clk_pin, uint8_t cs_pin);
+max7219_t max7219_init(uint8_t din_pin, uint8_t clk_pin, uint8_t cs_pin);
 void max7219_write_byte(max7219_t *max7219, uint8_t byte);
 void max7219_send_data(max7219_t *max7219, uint8_t address, uint8_t data);
+void max7219_change_intensity(max7219_t *max7219, uint8_t target_intensity, uint16_t delay_ms)
 
 
 #endif /* MAX7219_H_ */

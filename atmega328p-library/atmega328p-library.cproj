@@ -128,6 +128,12 @@
     <Compile Include="core\usart.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="include\cd4026be.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\max7219.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\sr_74hc595.h">
       <SubType>compile</SubType>
     </Compile>

@@ -12,6 +12,7 @@
 #include <util/delay.h>
 
 #include "../include/gpio.h"
+#include "../include/cd4026be.h"
 
 cd4026be_t cd4026be_init(uint8_t digit_1_pin, uint8_t digit_2_pin, uint8_t digit_3_pin, uint8_t digit_4_pin, uint8_t reset_pin, uint8_t clock_pin){
 	
